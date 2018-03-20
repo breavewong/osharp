@@ -400,12 +400,22 @@ namespace OSharp.Demo.Consoles
 
         private static void Method15()
         {
-            
+            string data = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string key = Console.ReadLine();
+            if (key.IsMissing())
+            {
+                key = AesHelper.GetRandomKey();
+            }
+            Console.WriteLine($"key: {key}");
+            data = AesHelper.Encrypt(data, key, true);
+            Console.WriteLine($"encode: {data}");
+            data = AesHelper.Decrypt(data, key, true);
+            Console.WriteLine($"decode: {data}");
         }
 
         private static void Method16()
         {
-            throw new NotImplementedException();
+            
         }
 
         private static void Method17()
